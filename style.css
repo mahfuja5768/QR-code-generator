@@ -1,107 +1,79 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap");
 
-
-:root{
-    --bcg-color: #001122;
-    --primary-color: #155e75;
-    --border-radius: 8px;
-    --secondary-color: #fff;
-    --border-color: #086d8f;
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: 'Work Sans', sans-serif;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bcg-color);
+body {
+  font-family: "Work Sans", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3498DB;
 }
 
-.box{ 
-    background-color: var(--primary-color);
-    padding: 30px;
-    width: 400px;
-    border-radius: var(--border-radius);
+.box_container{
+  background-color: #fff;
+  max-width: 410px;
+  border-radius: 7px;
+  padding: 16px 25px;
+  height: 260px;
+  transition: height 0.2s ease;
 }
 
-.qr-header h1{
-    font-size: 26px;
-    text-align: center;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    text-transform: uppercase;
+.box_container.active{
+ height: 530px;
 }
 
-.qr-header input{
-    width: 100%;
-    margin-block: 12px;
-   
+.qr_header h1{
+  font-size: 21px;
+  font-weight: 600;
+}
+.qr_header p{
+  font-size: 16px;
+  color: #474747;
+  margin-top: 5px;
 }
 
-.qr-header input, select{
-    padding: 8px;
-    border-radius: var(--border-radius);
-    font-size: 18px;
-    outline: none;
-    border: 2px solid var(--border-color);
-
+.form{
+  margin: 20px 0 25px;
 }
 
-.qr-header label{
-    color: var(--secondary-color);
-    font-size: 20px;
+.form :where(input, button){
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.form input{
+  font-size: 18px;
+  padding: 0 17px;
+  border: 1px solid #999;
+}
+.form button{
+  margin-top: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  background-color: #3498DB;
+}
+.qr_code{
+  display: flex;
+  padding: 33px 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.qr-header div{
-    display: flex;
-    justify-content: space-between;
-}
-
-.qr-footer{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.qr-footer a{
-    background-color: var(--secondary-color);
-    text-decoration: none;
-    font-size: 20px;
-    padding: 14px 36px;
-    margin-inline: 2px;
-    color: var(--primary-color);
-    font-weight: 600;
-    border-radius: var(--border-radius);
-}
-
-.qr-body{
-    display: grid;
-    place-items: center;
-    padding:20px;
-}
-
-.qr-body img{
-    max-width: 100%;
-    max-height: 100%;
-    margin-block: 10px;
-    padding: 20px;
-    border: 0.5px solid var(--border-color);
-    border-radius: var(--border-radius);
-}
-
-
-@media screen and (max-width:520px){
-    .box{
-        width: 80%;
-    }
-    .qr-footer a{
-        padding: 12px;
-        font-size: 16px;
-    }
+.box_container.active .qr_code{
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.5s ease;
 }
